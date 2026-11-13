@@ -103,6 +103,31 @@ Lỗi `drift` ở P3 frame 90 chỉ phát hiện ở lượt 2 vì khi nhìn t�
 Dán phần tóm tắt in ra từ `src/check_submission.py`:
 
 ```text
+Số frame in theo CVAT (bắt đầu từ 0). Trong gt.txt, frame_id = frame CVAT + 1.
+
+=== File MOT 1.1: PhamQuangHuy_mot.zip ===
+  Số track ID: 5   |   Tổng số box: 623
+  [OK]        Đúng 5 track ID.
+
+  Track | Frame có mặt | Số frame | Đoạn vắng (outside)
+      1 |   0–149      |      148 | 42–43
+      2 |   0–149      |      150 | -
+      3 |   0–106      |      107 | -
+      4 |   0–149      |      132 | 120–125, 137–148
+      5 |  64–149      |       86 | -
+
+=== File CVAT for video 1.1: PhamQuangHuy_cvat_video.zip ===
+
+  Track | Nhãn   | Frame thấy | Keyframe | KF/100 frame | Frame occluded | Lần bật outside
+      0 | person |        148 |       25 |         16.9 |             52 |               1
+      1 | person |        150 |       26 |         17.3 |             67 |               0
+      2 | person |        107 |        6 |          5.6 |             18 |               1
+      3 | person |        132 |       32 |         24.2 |             60 |               2
+      4 | person |         86 |       14 |         16.3 |             40 |               0
+
+  Tổng: 103 keyframe / 623 frame có mặt = 16.5 keyframe / 100 frame
+  [OK]        Đọc được 5 track từ annotations.xml.
+
 === Tóm tắt ===
   Lỗi: 0   |   Cảnh báo: 0
   Đạt. Dán phần tóm tắt này vào báo cáo mục 5.
@@ -129,4 +154,5 @@ Không làm.
 ## 7. Tài liệu tham khảo và công cụ AI đã dùng
 
 - Dữ liệu: MOT17, MOTChallenge (Milan et al., 2016), giấy phép CC BY-NC-SA 3.0.
+- Công cụ AI: Claude Code — hỗ trợ tra cứu cách dùng CVAT (phím tắt, cấu hình), giải thích khái niệm occluded/outside, chạy script tự kiểm `check_submission.py`, và hỗ trợ viết báo cáo.
 
